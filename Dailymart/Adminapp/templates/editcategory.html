@@ -1,0 +1,56 @@
+{% extends 'adminindex.html' %}
+{% block content %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Add Category</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              {% for i in category %}   
+              <form action="{% url 'updatecategory' i.id %}" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name" value="{{i.name}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control" id="image" placeholder="Image">
+                  </div>
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+              {% endfor %}
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+
+{% endblock %}

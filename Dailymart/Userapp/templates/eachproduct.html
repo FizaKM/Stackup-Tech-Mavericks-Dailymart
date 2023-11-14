@@ -1,0 +1,85 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<!-- Start All Title Box -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Products</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active">PRODUCTS</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+
+
+<!-- Start Shop Detail  -->
+{% for product in product %}
+<div class="shop-detail-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-6">
+                <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active"> <img class="d-block w-100" src="{{product.image.url}}" alt="First slide"> </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6">
+                <div class="single-product-details">
+                    <form action="{% url 'addtocart' productid=product.id %}" method="post">
+                        {% csrf_token %}
+                    <h2>{{product.name}}</h2>
+                    <h5> ${{product.price}}</h5>
+
+                   
+                            <div class="form-group quantity-box">
+                                <label class="control-label">Quantity & Price</label>
+                                <input type="number" id="quantity" name="quantity"  class="form-control input-number" value="0" min="0" max="100" step="1">
+                                <input type="text" id="total" name="total" value="{{i.price}}" class="form-control input-number">
+                
+                            </div>
+
+                    
+                        <input type="hidden" value="{{product.price}}" name="price" id="price">
+                        <p><input type="submit" value="Add to Cart" class="btn btn-white px-4 py-3"></p>
+                     
+                    </form>
+                </div>
+            </div>
+
+        </div>
+       
+
+    </div>
+</div>
+{% endfor %}
+<!-- End Cart -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('#quantity').change( function(){
+                // alert('hai')
+                var quantity=$('#quantity').val();
+                // alert(quantity)
+                var price=$('#price').val();
+                // alert(price)
+                var total=parseInt(quantity)*parseInt(price);
+                $('#total').val(total);
+            })
+        })
+    </script>
+<!-- End Cart -->
+{% endblock %}

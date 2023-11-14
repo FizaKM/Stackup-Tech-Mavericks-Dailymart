@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<!-- Start All Title Box -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>LOG IN</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active"> LOG IN </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+
+<!-- Start Contact Us  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+            <form  action="{% url 'memberlogin' %}" method="post" id="login-form" enctype="multipart/form-data" class="login-form">
+                {% csrf_token %}
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="password" required data-error="Please enter your password">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" value="Login" class="btn hvr-hover">
+                                  </div>
+                            </form>
+                            <p class="sign-up">Don't have an Account?<a href="{% url 'register1' %}"> Sign up</a></p>
+                            <p>{{msg}}</p>
+                            </div>
+                        </div>
+                    </form>
+        </div>
+    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!-- End Cart -->
+{% endblock %}

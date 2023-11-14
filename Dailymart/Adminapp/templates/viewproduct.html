@@ -1,0 +1,68 @@
+{% extends 'adminindex.html' %}
+{% block content %}
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>View Product</h1>
+          </div>
+        
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+              
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    {% for i in product %}
+                  <tr>
+                    
+                    <td>{{i.name}}</td>
+                    <td><img src="{{i.image.url}}" style="height: 100px;width:100px;"></td>
+                    <td>{{i.category}}</td>
+                    <td>{{i.price}}</td>
+                    <td><a href="{% url 'editproduct' id=i.id %}"><button type="button" class="btn btn-block btn-outline-success">Edit</button></a></td>
+                    <td><a href="{% url 'deleteproduct' id=i.id %}"><button type="button" class="btn btn-block btn-outline-danger">Delete</button></a></td>
+                   
+                </tr>
+                {% endfor %}
+                  </tbody>
+                  
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock %}

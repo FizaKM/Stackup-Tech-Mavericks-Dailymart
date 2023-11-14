@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>ABOUT US</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active">ABOUT US</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Start About Page  -->
+<div class="about-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-frame"> <img class="img-fluid" src="{% static 'images/about-img.jpg' %}" alt="" />
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="noo-sh-title-top">We are <span>Freshshop</span></h2>
+                <p>"Welcome to our premier online vegetable and fruit shop, where freshness meets convenience. We take pride in offering you a wide
+                     assortment of nature's finest produce, sourced directly from local farmers and trusted suppliers. From vibrant and succulent fruits
+                      to crisp and nutrient-rich vegetables, our diverse selection promises to cater to all your culinary desires.</p>
+                <p>With our user-friendly interface, finding your favorite fruits and vegetables is a breeze. Seamlessly browse through our categories, filter by
+                     organic or locally grown options, and conveniently add items to your virtual cart. Our intuitive search feature allows you to quickly 
+                     locate specific produce or explore new varieties, ensuring that your culinary aspirations are always within reach.</p>
+               
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-sm-6 col-lg-4">
+                <div class="service-block-inner">
+                    <h3>We are Trusted</h3>
+                    <p>We understand the importance of freshness, which is why we ensure that your order is meticulously handpicked and packed with utmost care. </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="service-block-inner">
+                    <h3>We are Professional</h3>
+                    <p>Embracing a sustainable approach, we prioritize eco-friendly practices throughout our operations.  </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="service-block-inner">
+                    <h3>We are Expert</h3>
+                    <p>Join us in embracing a healthier lifestyle, one bite at a time. Explore our virtual aisles, savor the freshness, and unlock the potential of nature's bounty.</p>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
+<!-- End About Page -->
+
+{% endblock %}

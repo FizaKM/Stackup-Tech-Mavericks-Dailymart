@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+{% block content %}
+{% load static %}
+<!-- Start All Title Box -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>REGISTER AS NEW</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                    <li class="breadcrumb-item active"> REGISTER </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+
+<!-- Start Contact Us  -->
+<div class="contact-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-sm-12">
+                <div class="contact-form-right">
+            <form  action="{% url 'getdatacustomerregister' %}" method="post" id="register-form" enctype="multipart/form-data" class="register-form">
+                {% csrf_token %}
+                
+                
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="email" placeholder="Your Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="password" required data-error="Please enter your password">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="submit" value="Register" class="btn hvr-hover">
+                                  </div>
+                    
+                                </form>
+                </div>
+            </div>
+                                <p class="sign-up text-center">Already have an Account?<a href="{% url 'login1' %}"> Sign Up</a></p>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!-- End Cart -->
+{% endblock %}
